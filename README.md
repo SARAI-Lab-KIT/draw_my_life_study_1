@@ -4,7 +4,7 @@
 
 This repository contains all the material related to the publication "Draw My Life: Using Visual Storytelling and Robot-based Active Listening to Support Self-Disclosure in Children".
 
-<img src="./images/setup.png" width=451 height=383>
+<img src="./images/setup.png" width=602 height=511>
 
 ## What you will find inside this repository
 
