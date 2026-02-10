@@ -2,9 +2,9 @@
 
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPLv3-blue)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-TODO INTRO
+This repository contains all the material related to the publication "Draw My Life: Using Visual Storytelling and Robot-based Active Listening to Support Self-Disclosure in Children".
 
-<img src="./imgs/setup.png">
+<img src="./images/setup.png" width=451 height=383>
 
 ## What you will find inside this repository
 
@@ -13,7 +13,7 @@ TODO INTRO
 - **data_analysis_code**: This folder contains the code used to analyse the data.
 - **images**: This folder contains the images used in the different README of this repository.
 
-**Note**: For everything related to the robot used, please check the [PixelBot](https://github.com/RomainMaure/PixelBot/tree/pixelbot_v2) repository.
+**Note**: For everything related to the robot, please check the [PixelBot](https://github.com/RomainMaure/PixelBot/tree/pixelbot_v2) repository.
 
 ## License
 
