@@ -56,4 +56,4 @@ In the Draw My Life activity, the drawing application is supposed to run on the 
 
 ## Bugs & Feature Requests
 
-Please report bugs and request features using the [Issue Tracker](https://github.com/RomainMaure/PixelBot/issues).
+Please report bugs and request features using the [Issue Tracker](https://github.com/SARAI-Lab-KIT/draw_my_life_study_1/issues).

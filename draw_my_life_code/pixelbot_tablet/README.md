@@ -95,4 +95,4 @@ This package allows running the drawing application on a tablet.
 
 ## Bugs & Feature Requests
 
-Please report bugs and request features using the [Issue Tracker](https://gitlab.kit.edu/kit/iar/sarai/software/ros2/pixelbot/pixelbot_tablet/-/issues).
+Please report bugs and request features using the [Issue Tracker](https://github.com/SARAI-Lab-KIT/draw_my_life_study_1/issues).

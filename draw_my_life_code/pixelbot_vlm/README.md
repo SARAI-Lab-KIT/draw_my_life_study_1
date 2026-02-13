@@ -101,4 +101,4 @@ Allows to process the children drawings and verbal input in the context of the d
 
 ## Bugs & Feature Requests
 
-Please report bugs and request features using the [Issue Tracker](https://gitlab.kit.edu/kit/iar/sarai/software/ros2/sarai-standalone/sarai_msgs/-/issues).
+Please report bugs and request features using the [Issue Tracker](https://github.com/SARAI-Lab-KIT/draw_my_life_study_1/issues).
