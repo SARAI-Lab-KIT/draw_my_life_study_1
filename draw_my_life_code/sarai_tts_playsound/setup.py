@@ -20,7 +20,7 @@ setup(
     maintainer='maure',
     maintainer_email='romain.maure@kit.edu',
     description='Package allowing any robot to speak.',
-    license='MIT',
+    license='GPLv3',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

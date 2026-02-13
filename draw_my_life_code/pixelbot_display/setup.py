@@ -19,7 +19,7 @@ setup(
     maintainer='maure',
     maintainer_email='romain.maure@kit.edu',
     description='Pygame face animation on LCD display',
-    license='MIT',
+    license='GPLv3',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
