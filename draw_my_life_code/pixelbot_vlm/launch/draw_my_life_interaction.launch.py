@@ -43,7 +43,7 @@ def generate_launch_description():
 
     vlm_model_arg = DeclareLaunchArgument(
         'vlm_model',
-        default_value='kit.qwen3-vl-235b-a22b-instruct',
+        default_value='qwen3-vl:235b-instruct-cloud',
         description='Which model to use for the vlm.'
     )
 

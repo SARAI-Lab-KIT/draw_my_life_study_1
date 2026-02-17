@@ -9,7 +9,6 @@ from cv_bridge import CvBridge
 import base64
 
 import os
-os.environ["OLLAMA_HOST"] = os.getenv("OLLAMA_HOST")
 
 import ollama
 from openai import OpenAI
@@ -51,14 +50,19 @@ class VLM(Node):
         self.conversation_history = [{"role": "system", "content": self.vlm_persona}]
 
         # Initialize the vlm model
-        self.declare_parameter('vlm_model', 'kit.qwen3-vl-235b-a22b-instruct')
+        self.declare_parameter('vlm_model', 'qwen3-vl:235b-instruct-cloud')
         self.VLM_MODEL = self.get_parameter('vlm_model').get_parameter_value().string_value
 
         # Initialize the vlm client
-        if "sarai" not in self.VLM_MODEL:
+        if "gpt" in self.VLM_MODEL:
+            vlm_client_api_key = os.getenv("OPENAI_API_KEY")
+            self.openai_client = OpenAI(api_key=vlm_client_api_key)
+        elif "kit" in self.VLM_MODEL:
             vlm_client_api_key = os.getenv("KI_TOOLBOX_API_KEY")
             self.openai_client = OpenAI(api_key=vlm_client_api_key, 
                                         base_url="https://ki-toolbox.scc.kit.edu/api/v1")
+        elif "sarai" in self.VLM_MODEL:
+            self.VLM_MODEL = "qwen3-vl:235b-a22b-instruct"
 
         # Initialize the cv bridge object
         self.cv_bridge = CvBridge()
@@ -122,7 +126,7 @@ class VLM(Node):
 
             # Add the drawing to the conversation history
             # openai api
-            if "sarai" not in self.VLM_MODEL:
+            if "kit" in self.VLM_MODEL or "gpt" in self.VLM_MODEL:
                 self.conversation_history.append({"role": "user",
                                                 "content": [{"type": "image_url",
                                                             "image_url": {"url": f"data:image/jpeg;base64,{drawing_image_base64}"}}]})
@@ -142,7 +146,7 @@ class VLM(Node):
             
             # Add the recognized text and the drawing to the conversation history
             # openai api
-            if "sarai" not in self.VLM_MODEL:
+            if "kit" in self.VLM_MODEL or "gpt" in self.VLM_MODEL:
                 self.conversation_history.append({"role": "user", 
                                                 "content": [{"type": "text",
                                                             "text": msg.data},
@@ -160,12 +164,12 @@ class VLM(Node):
 
         # Give the image/recognized text as input of the vlm and get its output
         self.get_logger().info("send to vlm")
-        if "sarai" not in self.VLM_MODEL:
+        if "kit" in self.VLM_MODEL or "gpt" in self.VLM_MODEL:
             vlm_output = self.openai_client.chat.completions.create(model=self.VLM_MODEL, 
                                                                     messages=self.conversation_history)
             vlm_reply = vlm_output.choices[0].message.content
         else:
-            vlm_output = ollama.chat(model="qwen3-vl:235b-a22b-instruct", 
+            vlm_output = ollama.chat(model=self.VLM_MODEL, 
                                      messages=self.conversation_history)
             vlm_reply = vlm_output["message"]["content"]
 
