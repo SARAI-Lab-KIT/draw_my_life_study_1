@@ -4,6 +4,8 @@
 
 This folder contains all the code to run the Draw My Life activity.
 
+<img src="../images/Startscreen.png" width=960 height=546>
+
 ## Installation
 
 ### Dependencies
